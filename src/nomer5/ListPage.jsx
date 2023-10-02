@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading, Icon, IconButton, Text } from '@chakra-ui/react';
+import { Box, Heading, IconButton, Text } from '@chakra-ui/react';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@chakra-ui/react';

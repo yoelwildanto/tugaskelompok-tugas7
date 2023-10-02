@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Box, Input,Text, Grid, GridItem, Container } from '@chakra-ui/react';
-// import a from '../asset/linear.png'
 
 const initialList = [
   'Banana',
