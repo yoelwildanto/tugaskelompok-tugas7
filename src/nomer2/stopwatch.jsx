@@ -63,7 +63,7 @@ function Stopwatch() {
     <div className="App">
    <div style={containerStyle}>
       <div>
-      <span style={{ fontSize: '250px', fontFamily: 'roboto' }}>
+      <span style={{ fontSize: '250px', fontFamily: 'Times New Roman' }}>
           {("0"+Math.floor((time/(1000*60)) % 60)).slice(-2)} : {("0"+Math.floor((time/1000) % 60)).slice(-2)}
         </span>
       </div>
