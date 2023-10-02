@@ -1,8 +1,9 @@
 import React from 'react';
-import { Box, Heading, Text } from '@chakra-ui/react';
+import { Box, Heading, Icon, IconButton, Text } from '@chakra-ui/react';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@chakra-ui/react';
+import { BsFillPersonFill }  from 'react-icons/bs'
 
 function ListPage() {
   const location = useLocation();
@@ -15,12 +16,31 @@ function ListPage() {
   };
 
   return (
-    <Box p={4}>
-      <Heading as="h1" mb={4}>
+    <Box bg={'black'} p={4} 
+    flexDir={'column'} display={'flex'} 
+    justifyContent={'center'}
+    border={'3px solid blue'}>
+      <Heading color={'white'} as="h1" mb={4}>
         ChitChat - Express Your Feeling
       </Heading>
-      <Box borderWidth="1px" borderRadius="lg" p={4} mb={4}>
-        <Text>{expression}</Text>
+      <Box display={'flex'} justifyContent={'center'}>
+      <IconButton mt={2.5} mr={4} color={'blue'} bg={'transparent'} 
+      border={'3px solid blue'} fontSize={35} 
+      borderRadius={90} icon={<BsFillPersonFill/>} />
+      <Box 
+      color={'white'}
+      bg={'blue'}
+      border={'transparent'}
+      display={'flex'}
+      justifyContent={'center'}
+      borderTopRadius={25}
+      borderBottomRightRadius={25}
+      borderWidth="1px" p={0} mb={4}
+      fontSize={30}
+      fontWeight={600}
+      >
+        <Text m={2}>{expression}</Text>
+      </Box>
       </Box>
       <Button colorScheme='teal' onClick={handleGoToHome}>Home</Button>
     </Box>

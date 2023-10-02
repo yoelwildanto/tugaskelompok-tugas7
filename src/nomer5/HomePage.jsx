@@ -17,10 +17,12 @@ function HomePage() {
   };
 
   return (
-    <Container border={'blue'}>
+    <Container >
     <Box 
     bg={'black'}
-    border={'1px white'}
+    border={'3px solid blue'}
+    color={'white'}
+    borderRadius={10}
     p={4}>
       <Heading color={'white'} as="h1" mb={4} fontWeight={550}>
         ChitChat - Express Your Feeling
