@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Button, Input, Heading } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
+import SearchList from '../nomer3';
 
 function HomePage() {
   const [expression, setExpression] = useState('');
@@ -29,7 +30,9 @@ function HomePage() {
       <Button colorScheme="teal" onClick={handleGoToList}>
         Go to List
       </Button>
+      <SearchList/>
     </Box>
+    
     
   );
 }
