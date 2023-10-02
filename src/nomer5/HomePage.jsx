@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import {PiPaperPlaneRightFill} from 'react-icons/pi'
 import SearchList from '../nomer3';
 import Stopwatch from '../nomer2/stopwatch';
-import Stopwatch99 from '../stopwatch/Stop-watch'
+import Stopwatch99 from '../stopwatch/Stop-watch';
+import UserTable from '../nomer 4';
 
 function HomePage() {
   const [expression, setExpression] = useState('');
@@ -55,6 +56,7 @@ function HomePage() {
     <SearchList/>
     <Stopwatch/>
     <Stopwatch99/>
+    <UserTable/>
     </Container>   
     
   );
