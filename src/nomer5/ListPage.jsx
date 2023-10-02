@@ -3,7 +3,7 @@ import { Box, Heading, Icon, IconButton, Text } from '@chakra-ui/react';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@chakra-ui/react';
-import { BsFillPersonFill }  from 'react-icons/bs'
+import { BsPersonCircle }  from 'react-icons/bs'
 
 function ListPage() {
   const location = useLocation();
@@ -25,8 +25,8 @@ function ListPage() {
       </Heading>
       <Box display={'flex'} justifyContent={'center'}>
       <IconButton mt={2.5} mr={4} color={'blue'} bg={'transparent'} 
-      border={'3px solid blue'} fontSize={35} 
-      borderRadius={90} icon={<BsFillPersonFill/>} />
+       fontSize={50} 
+      borderRadius={90} icon={<BsPersonCircle/>} />
       <Box 
       color={'white'}
       bg={'blue'}
