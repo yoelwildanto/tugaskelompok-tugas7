@@ -32,7 +32,8 @@ function SearchList() {
   };
 
   return (
-    <Container className='nomer3'
+    <Container
+    borderRadius={5}
     bgImage="url('/asset/linear.png')"
     bgGradient="linear(to-br, yellow.200, red ,purple.500)"
     bgPosition={'center'}>
@@ -40,7 +41,7 @@ function SearchList() {
     <Box pt={3} mt={15} mb={0} display={'flex'} 
     justifyContent={'center'} 
     flexDirection={'row'}>
-        <Text fontWeight={500}>Search: </Text>
+        <Text fontWeight={400}>Search: </Text>
       <Input
         variant={'filled'}
         h={'20px'}
@@ -54,7 +55,7 @@ function SearchList() {
     </Box>
       <Grid justifyItems={'center'} gap={1}>
         {filteredItems.map((item, index) => (
-          <GridItem my={2} 
+          <GridItem my={1.5} 
           borderRadius={'7px'} 
           padding={'0'} w={'120px'} bg='white' key={index}>
             <Text>{item}</Text>
