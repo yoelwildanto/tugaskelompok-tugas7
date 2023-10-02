@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
+// Importing app.css is css file to add styling
+import "./App.css";
+
+const App = () => {
+  // Counter is a state initialized to 0
+  const [counter, setCounter] = useState(0);
+
+  // Function is called everytime increment button is clicked
+  const handleClick1 = () => {
+    // Counter state is incremented
+    setCounter(counter - 1);
+  };
+
+  // Function is called everytime decrement button is clicked
+  const handleClick2 = () => {
+    // Counter state is decremented
+    setCounter(counter + 1);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className="container2">
+        <button className="button1" onClick={handleClick1}>
+          -
+        </button>
+        <h1 className="angka">{counter}</h1>
+        <button className="button2" onClick={handleClick2}>
+          +
+        </button>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
