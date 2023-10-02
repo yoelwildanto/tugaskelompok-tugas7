@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import { Box, Input,Text, Grid, GridItem, Container } from '@chakra-ui/react';
+import { Box, Input,Text, Grid, GridItem, Container, Flex } from '@chakra-ui/react';
+// import a from '../asset/linear.png'
 
 const initialList = [
-  'banana',
-  'apple',
-  'orange',
-  'mango',
-  'pineapple',
-  'watermelon',
-  'strawberry',
-  'persimmon',
+  'Banana',
+  'Apple',
+  'Orange',
+  'Mango',
+  'Pineapple',
+  'Watermelon',
+  'Strawberry',
+  'Persimmon',
 ];
 
 function SearchList() {
@@ -31,21 +32,26 @@ function SearchList() {
   };
 
   return (
-    <Container bg={'pink'}>
+    <Container 
+    bgImage="url('/asset/linear.png')"
+    bg="pink"
+    bgPosition={'center'}>
     <Box textAlign="center">
-    <div>
-        <h3>Search</h3>
+    <Flex justifyContent={'center'} flexDirection={'row'}>
+        <p>Search: </p>
       <Input
+        h={'20px'}
         type="text"
-        placeholder="Search"
         value={searchTerm}
         onChange={handleSearch}
-        mt={4}
+        mt={15}
+        mx={10}
+        border={'transparent'}
       />
-    </div>
+    </Flex>
       <Grid templateColumns='1fr' gap={4} mt={4}>
         {filteredItems.map((item, index) => (
-          <GridItem bg='orange.300' key={index}>
+          <GridItem borderRadius={'20px'} padding={'1'} w={'150px'} bg='white' key={index}>
             <Text>{item}</Text>
           </GridItem>
         ))}
