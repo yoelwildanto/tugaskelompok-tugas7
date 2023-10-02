@@ -24,7 +24,7 @@ function ListPage() {
         ChitChat - Express Your Feeling
       </Heading>
       <Box display={'flex'} justifyContent={'center'}>
-      <IconButton mt={2.5} mr={4} color={'blue'} bg={'transparent'} 
+      <IconButton mt={2.5} mr={4} color={'#1081FF'} bg={'transparent'} 
        fontSize={50} 
       borderRadius={90} icon={<BsPersonCircle/>} />
       <Box 
