@@ -30,11 +30,13 @@ function HomePage() {
       <Box display={'flex'} >
       <Input
       variant={'filled'}
-        type="text"
+        as="textarea"
         placeholder="What's on your mind?"
         value={expression}
         onChange={handleExpressionChange}
         mb={4}
+        resize="vertical"
+        htmlSize={12}
         h={'100px'}
       />
       <IconButton 
