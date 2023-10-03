@@ -44,7 +44,7 @@ function Stopwatch99() {
 
   return (
     <Box borderRadius={10} bg={'black'}>
-      <Text textColor={'white'}>Stopwatch by Yoel</Text>
+      <Text textColor={'white'}>Stopwatch</Text>
       <Box px={50} letterSpacing={0} fontWeight={600} 
       fontSize={130} textColor={'white'} display={'flex'} justifyContent={'center'}>
         <Text>{displayMinutes}:</Text>
