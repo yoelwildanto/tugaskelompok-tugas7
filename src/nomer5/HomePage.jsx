@@ -3,7 +3,7 @@ import { Box, Input, Heading, Container, IconButton } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import {PiPaperPlaneRightFill} from 'react-icons/pi'
 import SearchList from '../nomer3';
-import Stopwatch from '../nomer2/stopwatch';
+// import Stopwatch from '../nomer2/stopwatch';
 import Stopwatch99 from '../stopwatch/Stop-watch';
 import UserTable from '../nomer 4';
 
@@ -54,7 +54,7 @@ function HomePage() {
     </Box>
 
     <SearchList/>
-    <Stopwatch/>
+    {/* <Stopwatch/> */}
     <Stopwatch99/>
     <UserTable/>
     </Container>   
