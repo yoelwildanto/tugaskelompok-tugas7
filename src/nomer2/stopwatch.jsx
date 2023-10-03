@@ -1,94 +1,80 @@
-import React, { Component } from 'react';
-import './Stopwatch.css';
+import React from 'react';
 
-class Stopwatch extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      stopwatchText: '00:00',
-      timeoutId: null,
-      ms: 0,
-      sec: 0,
-      min: 0,
-      isPaused: false,
-    };
-  }
 
-  run = () => {
-    if (this.state.isPaused) {
-      this.setState({ isPaused: false });
-      this.start();
+function Stopwatch() {
+  const [time, setTime] = React.useState(0);
+  const [timerOn, setTimerOn] = React.useState(false);
+
+  React.useEffect(() => {
+    let interval = null;
+
+    if (timerOn) {
+      interval = setInterval(() => {
+        setTime(prevTime => prevTime + 10);
+      }, 10);
     } else {
-      this.setState({ isPaused: true });
-      clearTimeout(this.state.timeoutId);
+      clearInterval(interval);
     }
-  }
+    return () => clearInterval(interval);
+  }, [timerOn]);
 
-  start = () => {
-    const { ms, sec, min } = this.state;
-    let { timeoutId } = this.state;
+  // Styling
+  const buttonStyle = {
+    width: '65px',
+    height: '65px',
+    borderRadius: '10%',
+    fontSize: '20px',
+    fontWeight: 'normal',
+    margin: '0 140px',
+    cursor: 'pointer',
+    outline: 'none',
+    border: 'none',
+  };
 
-    timeoutId = setTimeout(() => {
-      let newMs = ms + 1;
-      let newSec = sec;
-      let newMin = min;
+  const startButtonStyle = {
+    ...buttonStyle,
+    backgroundColor: '#05af02',
+    color: 'white',
+  };
 
-      if (newMs === 100) {
-        newSec = sec + 1;
-        newMs = 0;
-      }
-      if (newSec === 60) {
-        newMin = min + 1;
-        newSec = 0;
-      }
-      if (newMs < 10) {
-        newMs = '0' + newMs;
-      }
-      if (newSec < 10) {
-        newSec = '0' + newSec;
-      }
-      if (newMin < 10) {
-        newMin = '0' + newMin;
-      }
+  const stopButtonStyle = {
+    ...buttonStyle,
+    backgroundColor: '#ef0002',
+    color: 'white',
+  };
 
-      this.setState({
-        stopwatchText: `${newMin}:${newSec}`,
-        ms: newMs,
-        sec: newSec,
-        min: newMin,
-        timeoutId,
-      });
+  const resetButtonStyle = {
+    ...buttonStyle,
+    backgroundColor: '#ffc605',
+    color: 'white',
+  };
 
-      this.start();
-    }, 10); // delay 10 ms
-  }
+  const containerStyle = {
+    backgroundColor: 'black',
+    color: 'white',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    height: '100vh', 
+    justifyContent: 'center', 
+  };
 
-  pause = () => {
-    clearTimeout(this.state.timeoutId);
-    this.setState({ isPaused: true });
-  }
-
-  reset = () => {
-    this.setState({
-      ms: 0,
-      sec: 0,
-      min: 0,
-      stopwatchText: '00:00',
-      isPaused: false,
-    });
-    clearTimeout(this.state.timeoutId);
-  }
-
-  render() {
-    return (
-      <div id="container">
-        <div id="stopwatch">{this.state.stopwatchText}</div>
-        <button onClick={this.run} id="start-btn">Start</button>
-        <button onClick={this.pause} id="pause-btn">Stop</button>
-        <button onClick={this.reset} id="reset-btn">Reset</button>
+  return (
+    <div className="App">
+   <div style={containerStyle}>
+      <div>
+      <span style={{ fontSize: '250px', fontFamily: 'Times New Roman' }}>
+          {("0"+Math.floor((time/(1000*60)) % 60)).slice(-2)} : {("0"+Math.floor((time/1000) % 60)).slice(-2)}
+        </span>
       </div>
-    );
-  }
+      <div>
+        <button style={startButtonStyle} onClick={() => setTimerOn(true)}>Start</button>
+        <button style={stopButtonStyle} onClick={() => setTimerOn(false)}>Stop</button>
+        <button style={resetButtonStyle} onClick={() => setTime(0)}>Reset</button>
+      </div>
+    </div>
+    </div>
+  );
 }
 
 export default Stopwatch;
